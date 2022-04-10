@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+
+Color greenLight = const Color(0xFFD7FFD9);
+Color lightGreen = const Color(0XFF7ED957);
+Color darkGreen1 = const Color(0XFF22AC44);
+Color green = const Color(0xFF3F9F43);
+Color green1 = const Color(0xFF79AA8D);
+Color green2 = const Color(0xFF325D3B);
+Color green3 = const Color(0xFF009B4C);
+// Color darkGreen = const Color(0XFF019A4B);
+// Color darkgreenTosca = const Color(0xFF79AA8D);
+// Color darkgreenTosca1 = const Color(0xFF325D3B);
+// Color yellowLight = const Color(0xFFFFE183);
+// Color darkYellow = const Color(0xFF9A7501);
+// Color blueLight = const Color(0xFFC7DFFF);
+// Color darkBlue = const Color(0xFF104B98);
+Color darkBlue = const Color(0xFF050A31);
+Color opacityBlue = const Color(0xFF050A31).withOpacity(0.5);
+Color darkGreen = const Color(0xFF3DA044);
+Color grey = const Color(0xFF6B6B6B);
