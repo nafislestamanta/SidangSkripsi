@@ -19,13 +19,13 @@ class CardGejala extends StatefulWidget {
 }
 
 class _CardGejalaState extends State<CardGejala> {
-  String? selectedValue;
+  // String? selectedValue;
 
-  void _selectionHandler(String? value) {
-    setState(() {
-      selectedValue = value;
-    });
-  }
+  // void _selectionHandler(String? value) {
+  //   setState(() {
+  //     selectedValue = value;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
