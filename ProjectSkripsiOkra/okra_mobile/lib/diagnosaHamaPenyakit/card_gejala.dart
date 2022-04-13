@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:okra_mobile/custom.dart';
 import 'package:okra_mobile/diagnosaHamaPenyakit/radio_option.dart';
 import 'package:okra_mobile/models/list_gejala.dart';
+import 'package:okra_mobile/models/models_provider_gejala.dart';
 import 'package:okra_mobile/providers/provider_diagnosa.dart';
 import 'package:provider/provider.dart';
 
@@ -19,13 +20,13 @@ class CardGejala extends StatefulWidget {
 }
 
 class _CardGejalaState extends State<CardGejala> {
-  // String? selectedValue;
+  String? selectedValue;
 
-  // void _selectionHandler(String? value) {
-  //   setState(() {
-  //     selectedValue = value;
-  //   });
-  // }
+  void _selectionHandler(String? value) {
+    setState(() {
+      selectedValue = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,49 +53,42 @@ class _CardGejalaState extends State<CardGejala> {
               thickness: 1,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Consumer<ProviderDiagnosa>(
-                builder: (context, value, child) => MyRadioOption<String>(
-                  value: '1',
-                  groupValue: value.checkValue,
-                  onChanged: (newValue) {
-                    value.checkValue = newValue!;
-                  },
-                  label: 'id1',
-                  text: 'Phone Gap',
-                ),
+              MyRadioOption<String>(
+                value: '1',
+                groupValue: selectedValue,
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value;
+                    final diagnosa = ProviderDiagnosa();
+                    diagnosa.add(ModelProviderGejala(
+                        kodeGejala: widget.gejala.kodeGejala,
+                        namaGejala: widget.gejala.namaGejala,
+                        kodeValue: value!));
+                  });
+                },
+                label: 'id1',
+                text: 'Phone Gap',
               ),
-              Consumer<ProviderDiagnosa>(
-                builder: (context, value, child) => MyRadioOption<String>(
-                  value: '2',
-                  groupValue: value.checkValue,
-                  onChanged: (newValue) {
-                    value.checkValue = newValue!;
-                  },
-                  label: 'id2',
-                  text: 'Phone Gap',
-                ),
+              MyRadioOption<String>(
+                value: '2',
+                groupValue: selectedValue,
+                onChanged: _selectionHandler,
+                label: 'id2',
+                text: 'Phone Gap',
               ),
-              Consumer<ProviderDiagnosa>(
-                builder: (context, value, child) => MyRadioOption<String>(
-                  value: '3',
-                  groupValue: value.checkValue,
-                  onChanged: (newValue) {
-                    value.checkValue = newValue!;
-                  },
-                  label: 'id3',
-                  text: 'Phone Gap',
-                ),
+              MyRadioOption<String>(
+                value: '3',
+                groupValue: selectedValue,
+                onChanged: _selectionHandler,
+                label: 'id3',
+                text: 'Phone Gap',
               ),
-              Consumer<ProviderDiagnosa>(
-                builder: (context, value, child) => MyRadioOption<String>(
-                  value: '4',
-                  groupValue: value.checkValue,
-                  onChanged: (newValue) {
-                    value.checkValue = newValue!;
-                  },
-                  label: 'id4',
-                  text: 'Phone Gap',
-                ),
+              MyRadioOption<String>(
+                value: '4',
+                groupValue: selectedValue,
+                onChanged: _selectionHandler,
+                label: 'id4',
+                text: 'Phone Gap',
               ),
             ])
           ],
