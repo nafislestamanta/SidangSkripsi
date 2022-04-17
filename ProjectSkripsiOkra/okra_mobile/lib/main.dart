@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:okra_mobile/providers/provider_diagnosa.dart';
+import 'package:okra_mobile/providers/diagnosa_provider.dart';
 import 'package:okra_mobile/splashscreen.dart';
 import 'package:provider/provider.dart';
 
@@ -13,8 +13,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ProviderDiagnosa(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => DiagnosaProvider(),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',

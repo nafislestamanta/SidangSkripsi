@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:okra_mobile/custom.dart';
+import 'package:okra_mobile/providers/diagnosa_provider.dart';
+import 'package:provider/provider.dart';
 
 class HasilDiagnosaPage extends StatefulWidget {
   const HasilDiagnosaPage({Key? key}) : super(key: key);
@@ -14,6 +16,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
 
   @override
   Widget build(BuildContext context) {
+    final hasil = Provider.of<DiagnosaProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
@@ -24,7 +27,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
           onTap: () => {Navigator.pop(context)},
         ),
         title: const Text(
-          'Hasil Diagnosa',
+          "jhaa",
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: darkGreen,
@@ -76,18 +79,18 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                       showTrackOnHover: true,
                       child: ListView.builder(
                         controller: _controllerOne,
-                        itemCount: 15,
+                        itemCount: hasil.items.length,
                         itemBuilder: (context, index) {
                           return Row(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.only(bottom: 10.0),
                                   child: Text(
-                                    '- Daun Pucat Layu Tak Berdaya',
+                                    "- ${hasil.items.values.toList()[index].kodeGejala} ${hasil.items.values.toList()[index].kodeValue}",
                                     style: GoogleFonts.poppins(fontSize: 14),
                                   ),
                                 ),

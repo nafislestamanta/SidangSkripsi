@@ -6,6 +6,8 @@ import 'package:okra_mobile/custom.dart';
 import 'package:okra_mobile/diagnosaHamaPenyakit/diagnosa.dart';
 import 'package:okra_mobile/infoHamaPenyakit/hama_penyakit.dart';
 import 'package:okra_mobile/petunjukPenggunaan/petunjuk.dart';
+import 'package:okra_mobile/providers/diagnosa_provider.dart';
+import 'package:provider/provider.dart';
 
 final List<String> imgList = [
   'assets/images/okra.png',
@@ -172,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return DiagnosaPage();
+                              return const DiagnosaPage();
                             },
                           ),
                         );
