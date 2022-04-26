@@ -1,14 +1,19 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart';
 import 'package:okra_mobile/custom.dart';
 import 'package:okra_mobile/diagnosaHamaPenyakit/card_gejala.dart';
 import 'package:okra_mobile/diagnosaHamaPenyakit/hasil_diagnosa.dart';
 import 'package:okra_mobile/home.dart';
-import 'package:okra_mobile/models/diagnosa.dart';
+import 'package:okra_mobile/models/hasil_diagnosa.dart';
 import 'package:okra_mobile/models/list_gejala.dart';
 import 'package:okra_mobile/providers/diagnosa_provider.dart';
 import 'package:okra_mobile/service/api_diagnosa.dart';
 import 'package:okra_mobile/service/api_hama_penyakit.dart';
+import 'package:okra_mobile/service/api_url.dart';
 import 'package:provider/provider.dart';
 
 class DiagnosaPage extends StatefulWidget {
@@ -24,9 +29,17 @@ class _DiagnosaPageState extends State<DiagnosaPage> {
 
   List<Gejala> listGejala = [];
 
+  late DiagnosaProvider hasil;
+
+  @override
+  void dispose() {
+    hasil.clearlist();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-  final hasil = Provider.of<DiagnosaProvider>(context, listen: false);
+    hasil = Provider.of<DiagnosaProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
@@ -315,8 +328,27 @@ class _DiagnosaPageState extends State<DiagnosaPage> {
                       ),
                     ),
                     onPressed: () async {
-                      
-                     await apiDiagnosa.createDiagnosa(ModelProviderGejala(kodeGejala: '' , kodeValue: ''));
+                      final jsonJawaban = jsonEncode(hasil.listJawaban);
+
+                      // bool cekHasil =
+                      createsDiagnosa(jsonJawaban);
+
+                      // if (jsonJawaban.isEmpty) {
+                      //   print("response cek hasil empty: $cekHasil");
+                      // } else {
+                      //   print("response cek hasil : $cekHasil");
+                      // }
+
+                      // if (cekHasil) {
+                      //   Navigator.pushReplacement(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) {
+                      //         return const HasilDiagnosaPage();
+                      //       },
+                      //     ),
+                      //   );
+                      // }
                     },
                     child: Text(
                       'Mulai Diagnosa',
@@ -333,5 +365,51 @@ class _DiagnosaPageState extends State<DiagnosaPage> {
         ],
       ),
     );
+  }
+
+  void createsDiagnosa(String jsonjawaban) async {
+    final String apiUrl = "$apiurl/Diagnosa";
+    // List<String> listJawaban = [
+    //   "${diagnosa.kodeGejala}_${diagnosa.kodeValue}",
+    // ];
+
+    // print("jsonJawaban = $jsonjawaban");
+
+    try {
+      final response = await post(
+        Uri.parse(apiUrl),
+        body: {'list_jawaban': jsonjawaban},
+      );
+
+      // print(response.statusCode);
+
+      if (response.statusCode == 200) {
+        final hasil = json.decode(response.body);
+        final dataNya2 = hasil!;
+        print("hasilAkhirData = $dataNya2");
+
+        final hasilAkhir = HasilDiagnosa.fromJson(hasil!);
+        final dataNya = hasilAkhir.data;
+        print("hasilAkhir = $dataNya");
+
+        // return dataHasil.data;
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return const HasilDiagnosaPage();
+            },
+          ),
+        );
+      } else {
+        print("error ya");
+      }
+
+      // log(response.body);
+    } catch (e) {
+      // Fluttertoast.showToast(msg: e.toString());
+      log(e.toString());
+    }
   }
 }

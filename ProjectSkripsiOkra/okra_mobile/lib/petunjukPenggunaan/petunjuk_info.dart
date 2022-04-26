@@ -51,7 +51,7 @@ class PetunjukInfoPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Text(
-              'Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra',
+              'Fitur Info Hama dan Penyakit ini memberikan informasi kepada petani (user) mengenai beberapa hama dan penyakit yang dimiliki tanaman Okra. Masing masing hama atau penyakit memiliki gejala dan solusi pengendalian yang berbeda.',
               textAlign: TextAlign.justify,
               style: GoogleFonts.poppins(
                 fontSize: 16,

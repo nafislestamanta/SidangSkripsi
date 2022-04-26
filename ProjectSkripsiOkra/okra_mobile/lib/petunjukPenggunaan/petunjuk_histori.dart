@@ -8,6 +8,7 @@ class PetunjukHistoriPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 300,
       margin: const EdgeInsets.symmetric(horizontal: 20.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30.0),
@@ -19,28 +20,31 @@ class PetunjukHistoriPage extends StatelessWidget {
             padding: const EdgeInsets.all(15.0),
             child: Row(
               children: [
+                const SizedBox(
+                  width: 20,
+                ),
                 Image.asset(
-                  'assets/images/clock.png',
+                  'assets/images/okras.png',
                   width: 100,
                   height: 100,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 80.0),
+                  padding: const EdgeInsets.only(left: 40.0),
                   child: Column(
                     children: [
                       Text(
-                        'Histori',
+                        'Tentang Okra',
                         style: GoogleFonts.poppins(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: darkBlue,
                         ),
                       ),
-                      Text('Diagnosa',
-                          style: GoogleFonts.poppins(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: darkBlue)),
+                      // Text('Okra',
+                      //     style: GoogleFonts.poppins(
+                      //         fontSize: 20,
+                      //         fontWeight: FontWeight.bold,
+                      //         color: darkBlue)),
                     ],
                   ),
                 )
@@ -48,9 +52,9 @@ class PetunjukHistoriPage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
             child: Text(
-              'Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra',
+              'Fitur Tentang Okra pada aplikasi Okra-in ini memberikan  informasi mengenai tanaman Okra seperti sejarah, keuntungan serta bagaimana cara budidaya tanaman tersebut.',
               textAlign: TextAlign.justify,
               style: GoogleFonts.poppins(
                 fontSize: 16,

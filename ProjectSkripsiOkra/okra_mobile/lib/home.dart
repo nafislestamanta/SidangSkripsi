@@ -6,8 +6,6 @@ import 'package:okra_mobile/custom.dart';
 import 'package:okra_mobile/diagnosaHamaPenyakit/diagnosa.dart';
 import 'package:okra_mobile/infoHamaPenyakit/hama_penyakit.dart';
 import 'package:okra_mobile/petunjukPenggunaan/petunjuk.dart';
-import 'package:okra_mobile/providers/diagnosa_provider.dart';
-import 'package:provider/provider.dart';
 
 final List<String> imgList = [
   'assets/images/okra.png',
@@ -66,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                           bottomLeft: Radius.circular(200.0)),
                       color: darkGreen,
                       gradient: LinearGradient(
-                          colors: [lightGreen, darkGreen1],
+                          colors: [darkGreen1, lightGreen],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter),
                     ),
@@ -79,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
-                                'assets/images/logo.png',
+                                'assets/images/napisaja.png',
                                 width: 50,
                                 height: 50,
                               ),
@@ -88,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                                 style: GoogleFonts.poppins(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
-                                    color: darkBlue),
+                                    color: green),
                               ),
                             ],
                           )
@@ -218,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                       onTap: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return HamaPenyakitPage();
+                          return const HamaPenyakitPage();
                         }));
                       },
                       child: Container(
@@ -315,7 +313,7 @@ class _HomePageState extends State<HomePage> {
                       onTap: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return PetunjukPage();
+                          return const PetunjukPage();
                         }));
                       },
                       child: Container(

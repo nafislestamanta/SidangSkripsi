@@ -2,7 +2,6 @@
 //
 //     final listHamaPenyakit = listHamaPenyakitFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 ListHamaPenyakit listHamaPenyakitFromJson(String str) =>

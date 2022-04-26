@@ -40,7 +40,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
           children: [
             Center(
               child: Image.asset(
-                'assets/images/logo.png',
+                'assets/images/napisaja.png',
                 width: 220,
                 height: 220,
               ),

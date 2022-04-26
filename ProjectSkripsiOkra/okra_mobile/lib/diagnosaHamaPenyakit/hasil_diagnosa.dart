@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:okra_mobile/custom.dart';
-import 'package:okra_mobile/providers/diagnosa_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:okra_mobile/models/hasil_diagnosa.dart';
+import 'package:okra_mobile/service/api_url.dart';
 
 class HasilDiagnosaPage extends StatefulWidget {
   const HasilDiagnosaPage({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
 
   @override
   Widget build(BuildContext context) {
-    final hasil = Provider.of<DiagnosaProvider>(context, listen: false);
+    // final hasil = Provider.of<DiagnosaProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
@@ -27,271 +27,301 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
           onTap: () => {Navigator.pop(context)},
         ),
         title: const Text(
-          "jhaa",
+          "Hasil Diagnosa",
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: darkGreen,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(20.0),
-              margin: EdgeInsets.all(20.0),
-              width: double.infinity,
-              height: 350,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    18.0,
-                  ),
-                  color: greenLight),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Gejala',
-                      style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
+      body: FutureBuilder<HasilDiagnosa>(builder: (context, snapshot) {
+        print(snapshot.hasData);
+        if (snapshot.hasData) {
+          final hasilDiagnosa = snapshot.data!;
+
+          final hasil = hasilDiagnosa.data;
+          // final hasilListPenyakit = hasilDiagnosa.data.hasilHp;
+          // final hasilPenyakit = hasilDiagnosa.data.hamapenyakit;
+          // final hasilNilai = hasilDiagnosa.data.hasilNilai;
+          final solusi = hasilDiagnosa.solusi;
+
+          // print(solusi);
+
+          // final hasilAll = hasilDiagnosa.data;
+          // final penyakit = hasilDiagnosa.hamapenyakit;
+          // final solusi = hasilDiagnosa.solusi;
+
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(20.0),
+                  margin: const EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  height: 350,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        18.0,
                       ),
-                    ),
-                  ),
-                  const Divider(
-                    thickness: 1,
-                    height: 25,
-                  ),
-                  Text(
-                    'Berikut adalah gejala-gejala yang diketahui untuk mengetahui diagnosa hama/penyakit',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: 160,
-                    child: Scrollbar(
-                      controller: _controllerOne,
-                      isAlwaysShown: true,
-                      showTrackOnHover: true,
-                      child: ListView.builder(
-                        controller: _controllerOne,
-                        itemCount: hasil.items.length,
-                        itemBuilder: (context, index) {
-                          return Row(
-                            children: [
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(bottom: 10.0),
-                                  child: Text(
-                                    "- ${hasil.items.values.toList()[index].kodeGejala} ${hasil.items.values.toList()[index].kodeValue}",
-                                    style: GoogleFonts.poppins(fontSize: 14),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(20.0),
-              margin: EdgeInsets.only(bottom: 20.0, left: 20.0, right: 20.0),
-              width: double.infinity,
-              height: 350,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    18.0,
-                  ),
-                  color: greenLight),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Diagnosa Hama dan Penyakit',
-                      style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Divider(
-                    thickness: 1,
-                    height: 25,
-                  ),
-                  Text(
-                    'Dari gejala-gejala tersebut, kemungkinan terkena serangan hama atau penyakit sebagai berikut :',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: 160,
-                    child: Scrollbar(
-                      child: ListView.builder(
-                        itemCount: 5,
-                        itemBuilder: (context, index) {
-                          return Row(
-                            children: [
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(bottom: 10.0),
-                                  child: Text(
-                                    '- Layu Fusarium',
-                                    style: GoogleFonts.poppins(fontSize: 14),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                '0.90',
-                                style: GoogleFonts.poppins(
-                                    fontSize: 14,
-                                    color: darkGreen,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(20.0),
-              margin: EdgeInsets.only(bottom: 20.0, left: 20.0, right: 20.0),
-              width: double.infinity,
-              height: 400,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    18.0,
-                  ),
-                  color: greenLight),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Hama/Penyakit Nilai Tertinggi',
-                      style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Divider(
-                    thickness: 1,
-                    height: 25,
-                  ),
-                  Container(
-                    height: 150,
-                    width: 250,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/lubang.jpg'),
-                        fit: BoxFit.fill,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                      border: Border.all(
-                        width: 0.5,
-                        color: Color(0xFF423B55),
-                      ),
-                    ),
-                    margin: EdgeInsets.all(5.0),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                      color: greenLight),
+                  child: Column(
                     children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Gejala',
+                          style: GoogleFonts.poppins(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                        height: 25,
+                      ),
                       Text(
-                        'Empoasca',
+                        'Berikut adalah gejala-gejala yang diketahui untuk mengetahui diagnosa hama atau penyakit :',
                         style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            color: darkGreen,
-                            fontWeight: FontWeight.w600),
+                          fontSize: 14,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(
+                        height: 20,
                       ),
                       SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '(0.90)',
-                        style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            color: darkGreen,
-                            fontWeight: FontWeight.w600),
+                        height: 160,
+                        child: Scrollbar(
+                          controller: _controllerOne,
+                          isAlwaysShown: true,
+                          showTrackOnHover: true,
+                          child: ListView.builder(
+                            controller: _controllerOne,
+                            itemCount: hasil.hasilGejala.length,
+                            itemBuilder: (context, index) {
+                              final listGejala = hasil.hasilGejala[index];
+                              return Row(
+                                children: [
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 10.0),
+                                      child: Text(
+                                        "- ${listGejala.namaGejala}",
+                                        style:
+                                            GoogleFonts.poppins(fontSize: 14),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          ),
+                        ),
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Dari hasil tersebut dapat disimpulkan bahwa hama atau penyakit yang menyerang tanaman okra anda adalah Empoasca dengan nilai perhitungan 0.90',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 25, right: 20, left: 20),
-              child: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    primary: green3,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                    ),
-                  ),
-                  onPressed: () => showModalBottomSheet(
-                    context: context,
-                    builder: (context) => buildSheet(),
-                    isScrollControlled: true,
-                    backgroundColor: Colors.transparent,
-                  ),
-                  child: Text(
-                    'Solusi',
-                    style: GoogleFonts.poppins(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(20.0),
+                  margin: const EdgeInsets.only(
+                      bottom: 20.0, left: 20.0, right: 20.0),
+                  width: double.infinity,
+                  height: 370,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        18.0,
+                      ),
+                      color: greenLight),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Diagnosa Hama dan Penyakit',
+                          style: GoogleFonts.poppins(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                        height: 25,
+                      ),
+                      Text(
+                        'Berdasarkan gejala-gejala tersebut, maka diketahui hama atau penyakit yang menyerang tanaman Okra dengan nilai persentase sebagai berikut :',
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        height: 160,
+                        child: Scrollbar(
+                          child: ListView.builder(
+                            itemCount: hasil.hasilHp.length,
+                            itemBuilder: (context, index) {
+                              final listPenyakit = hasil.hasilHp[index];
+                              return Row(
+                                children: [
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 10.0),
+                                      child: Text(
+                                        '- ${listPenyakit.namaHp}',
+                                        style:
+                                            GoogleFonts.poppins(fontSize: 14),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    '${listPenyakit.nilaiPerhitungan}',
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 14,
+                                        color: darkGreen,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ],
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
+                Container(
+                  padding: const EdgeInsets.all(20.0),
+                  margin: const EdgeInsets.only(
+                      bottom: 20.0, left: 20.0, right: 20.0),
+                  width: double.infinity,
+                  height: 460,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        18.0,
+                      ),
+                      color: greenLight),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Hama/Penyakit Nilai Tertinggi',
+                          style: GoogleFonts.poppins(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                        height: 25,
+                      ),
+                      Container(
+                        height: 150,
+                        width: 250,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                                '$fotoUrl/assets/images/okra/${hasil.hamapenyakit.gambar}'),
+                            fit: BoxFit.fill,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(18.0)),
+                          border: Border.all(
+                            width: 0.5,
+                            color: const Color(0xFF423B55),
+                          ),
+                        ),
+                        margin: const EdgeInsets.all(5.0),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            hasil.hamapenyakit.namaHp,
+                            style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                color: darkGreen,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            '(${hasil.hasilNilai})',
+                            style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                color: darkGreen,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Dari hasil tersebut dapat disimpulkan bahwa hama atau penyakit yang menyerang tanaman Okra anda adalah Empoasca dengan nilai perhitungan 0.90',
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        width: 100,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                            primary: green3,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ),
+                          ),
+                          onPressed: () => showModalBottomSheet(
+                            context: context,
+                            builder: (context) => buildSheet(),
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                          ),
+                          child: Text(
+                            'Solusi',
+                            style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          );
+        }
+        return SizedBox();
+      }),
     );
   }
 
@@ -305,7 +335,8 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
             Container(
               decoration: BoxDecoration(
                 color: greenLight,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(30)),
               ),
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -320,7 +351,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                       ),
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     thickness: 1,
                     height: 25,
                   ),
@@ -328,17 +359,18 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                     height: 150,
                     width: 250,
                     decoration: BoxDecoration(
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         image: AssetImage('assets/images/lubang.jpg'),
                         fit: BoxFit.fill,
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(18.0)),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(18.0)),
                       border: Border.all(
                         width: 0.5,
-                        color: Color(0xFF423B55),
+                        color: const Color(0xFF423B55),
                       ),
                     ),
-                    margin: EdgeInsets.all(5.0),
+                    margin: const EdgeInsets.all(5.0),
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -351,7 +383,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                             color: darkGreen,
                             fontWeight: FontWeight.w600),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
@@ -363,7 +395,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   SizedBox(

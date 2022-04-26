@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 import 'package:okra_mobile/models/detail_hamapenyakit.dart';
 import 'package:okra_mobile/models/list_gejala.dart';

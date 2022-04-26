@@ -35,7 +35,7 @@ class PetunjukPage extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       body: ListView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Container(
             padding: const EdgeInsets.all(20),
@@ -61,8 +61,11 @@ class PetunjukPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                const SizedBox(
+                  height: 20,
+                ),
                 Text(
-                  'Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra',
+                  'Kenali fitur pada aplikasi Okra-in !',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(fontSize: 16, color: Colors.white),
                 ),
@@ -108,13 +111,13 @@ class PetunjukPage extends StatelessWidget {
                           )),
                           Tab(
                               child:
-                                  Text('Histori', textAlign: TextAlign.center)),
+                                  Text('Tentang', textAlign: TextAlign.center)),
                         ]),
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20.0),
                     child: SizedBox(
-                      height: 440,
+                      height: 510,
                       width: double.infinity,
                       child: TabBarView(
                         children: [

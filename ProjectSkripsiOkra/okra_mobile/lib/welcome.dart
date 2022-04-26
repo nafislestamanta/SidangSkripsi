@@ -36,7 +36,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 padding: const EdgeInsets.all(10),
                 margin: const EdgeInsets.all(10),
                 child: Text(
-                  'Aplikasi Okra-in merupakan aplikasi yang dapat memudahkan dalam mendiagnosa hama atau penyakit yang menyerang pada tanaman okra.',
+                  'Aplikasi Okra-in merupakan aplikasi yang digunakan untuk mengatasi permasalahan para petani dalam mendiagnosa hama dan penyakit serta solusi pengendalian pada tanaman Okra berdasarkan pengetahuan dari ahli pakar.',
                   textAlign: TextAlign.justify,
                   style: GoogleFonts.poppins(height: 1.5),
                 ),

@@ -5,9 +5,6 @@ import 'package:okra_mobile/Tentang%20Okra/tentang_keuntungan.dart';
 import 'package:okra_mobile/Tentang%20Okra/tentang_sejarah.dart';
 import 'package:okra_mobile/custom.dart';
 import 'package:okra_mobile/home.dart';
-import 'package:okra_mobile/petunjukPenggunaan/petunjuk_diagnosa.dart';
-import 'package:okra_mobile/petunjukPenggunaan/petunjuk_histori.dart';
-import 'package:okra_mobile/petunjukPenggunaan/petunjuk_info.dart';
 
 class TentangOkra extends StatelessWidget {
   const TentangOkra({Key? key}) : super(key: key);
@@ -38,7 +35,7 @@ class TentangOkra extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       body: ListView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Container(
             padding: const EdgeInsets.all(20),
@@ -64,8 +61,11 @@ class TentangOkra extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                const SizedBox(
+                  height: 20,
+                ),
                 Text(
-                  'Kenali Okra Yuk',
+                  'Apa itu tanaman Okra ?',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(fontSize: 16, color: Colors.white),
                 ),

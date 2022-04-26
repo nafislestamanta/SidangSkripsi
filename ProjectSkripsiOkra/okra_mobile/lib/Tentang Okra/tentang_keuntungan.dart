@@ -8,7 +8,7 @@ class TentangKeuntungan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(15.0),
       margin: const EdgeInsets.symmetric(horizontal: 15.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30.0),
@@ -21,17 +21,17 @@ class TentangKeuntungan extends StatelessWidget {
               height: 150,
               width: 250,
               decoration: BoxDecoration(
-                image: DecorationImage(
+                image: const DecorationImage(
                   image: AssetImage('assets/images/okra.png'),
                   fit: BoxFit.fill,
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(18.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(18.0)),
                 border: Border.all(
                   width: 0.5,
-                  color: Color(0xFF423B55),
+                  color: const Color(0xFF423B55),
                 ),
               ),
-              margin: EdgeInsets.all(5.0),
+              margin: const EdgeInsets.all(5.0),
             ),
             Text(
               'Keuntungan Bertanam Okra',

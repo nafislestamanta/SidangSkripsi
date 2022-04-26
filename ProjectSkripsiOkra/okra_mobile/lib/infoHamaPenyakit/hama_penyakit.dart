@@ -32,7 +32,7 @@ class _HamaPenyakitPageState extends State<HamaPenyakitPage> {
         backgroundColor: darkGreen,
       ),
       body: ListView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Container(
             padding: const EdgeInsets.all(20),
@@ -60,14 +60,14 @@ class _HamaPenyakitPageState extends State<HamaPenyakitPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Daftar hama dan penyakit pada tanaman okra',
+                  'Daftar hama dan penyakit pada tanaman Okra',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(fontSize: 16, color: Colors.white),
                 ),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           DefaultTabController(
@@ -107,10 +107,10 @@ class _HamaPenyakitPageState extends State<HamaPenyakitPage> {
                         )),
                       ]),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 600,
                   child: TabBarView(children: [
                     HamaPage(),

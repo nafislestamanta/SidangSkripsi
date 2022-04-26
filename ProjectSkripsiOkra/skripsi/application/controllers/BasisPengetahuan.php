@@ -56,12 +56,15 @@ class BasisPengetahuan extends CI_Controller
             $mb = $this->input->post('mb');
             $md = $this->input->post('md');
 
+            $cf = $mb - $md;
+
             $data = [
                 'kode_pengetahuan' => $kode,
                 'kode_hp' => $nama,
                 'kode_gejala' => $gejala,
                 'mb' => $mb,
                 'md' => $md,
+                'cf_pakar' => $cf
             ];
 
             $tambah = $this->M_basispengetahuan->tambahBP($data);
@@ -111,11 +114,14 @@ class BasisPengetahuan extends CI_Controller
             $mb = $this->input->post('mb');
             $md = $this->input->post('md');
 
+            $cf = $mb - $md;
+
             $data = [
                 'kode_hp' => $nama,
                 'kode_gejala' => $gejala,
                 'mb' => $mb,
                 'md' => $md,
+                'cf_pakar' => $cf
             ];
 
             $update = $this->M_basispengetahuan->updateBP($data, $id);

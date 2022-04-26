@@ -50,13 +50,17 @@ class PetunjukDiagnosaPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: Text(
-              'Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra Kenali Fitur Sistem Pakar Diagnosa Hama dan Penyakit Pada Tanaman Okra',
-              textAlign: TextAlign.justify,
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                color: darkBlue,
-              ),
+            child: Column(
+              children: [
+                Text(
+                  'Pada fitur Diagnosa Hama dan Penyakit, petani (user) memilih beberapa gejala yang terjadi pada tanaman Okra serta menentukan nilai keyakinan berdasarkan gejala tersebut. Lalu user dapat memulai diagnosa dan akan menampilkan hasil diagnosa yang beberapa diantaranya yaitu gejala yang telah dipilih user, hama atau penyakit dengan persentase tertinggi serta solusi pengendalian, dan list beberapa penyakit lainnya dengan persentase rendah.',
+                  textAlign: TextAlign.justify,
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    color: darkBlue,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

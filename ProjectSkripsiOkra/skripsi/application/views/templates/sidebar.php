@@ -2,7 +2,7 @@
     <div id="sidebar" class="active">
         <div class="sidebar-wrapper active">
             <div style="padding-top: 20px; padding-left: 20px;">
-                <a style="font-size: xx-large; font-weight: bold; color: #3F9F43;" href="<?= base_url('dashboard'); ?>"><img width="100px" height="100px" src="<?= base_url('assets/'); ?>images/okra/logo.png" alt="Logo" srcset="">Okra-in</a>
+                <a style="font-size: xx-large; font-weight: bold; color: #3F9F43;" href="<?= base_url('dashboard'); ?>"><img width="100px" height="100px" src="<?= base_url('assets/'); ?>images/okra/napisaja.png" alt="Logo" srcset="">Okra-in</a>
             </div>
             <div class="sidebar-menu">
                 <ul class="menu">

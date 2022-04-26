@@ -2,7 +2,6 @@
 //
 //     final listGejala = listGejalaFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 ListGejala listGejalaFromJson(String str) =>

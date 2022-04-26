@@ -92,7 +92,7 @@ class _CardGejalaState extends State<CardGejala> {
                 setState(() {
                   selectedValue = value;
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('Berhasil Dipilih'),
                     ),
                   );
@@ -110,7 +110,7 @@ class _CardGejalaState extends State<CardGejala> {
                 setState(() {
                   selectedValue = value;
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('Berhasil Dipilih'),
                     ),
                   );

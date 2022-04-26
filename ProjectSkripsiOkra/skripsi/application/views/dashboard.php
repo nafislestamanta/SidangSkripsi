@@ -74,7 +74,7 @@
             </div>
         </section>
     </div>
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Bar Chart</h4>
@@ -83,7 +83,7 @@
                 <canvas id="bar"></canvas>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- <section class="section">
         <div class="row">

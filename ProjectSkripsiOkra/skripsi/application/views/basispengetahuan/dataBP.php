@@ -40,6 +40,7 @@
                                 <th>Gejala</th>
                                 <th>MB</th>
                                 <th>MD</th>
+                                <th>CF Pakar</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -53,6 +54,7 @@
                                     <td><?= $bp->nama_gejala; ?></td>
                                     <td><?= $bp->mb; ?></td>
                                     <td><?= $bp->md; ?></td>
+                                    <td><?= $bp->cf_pakar; ?></td>
                                     <td>
                                         <a href="<?= base_url('basispengetahuan/editBP/' . $bp->kode_pengetahuan); ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
                                         <!-- <a href="<?= base_url('basispengetahuan/detailBP/' . $bp->kode_pengetahuan); ?>" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"><i class="fa fa-eye"></i></a> -->

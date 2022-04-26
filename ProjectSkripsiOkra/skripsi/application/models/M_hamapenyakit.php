@@ -35,16 +35,18 @@ class M_hamapenyakit extends CI_Model
 
     public function kode()
     {
-        $cd = $this->db->query("SELECT MAX(RIGHT(kode_hp,3)) AS kd_max FROM hamapenyakit");
+        $cd = $this->db->query("SELECT MAX(RIGHT(kode_hp,2)) AS kd_max FROM hamapenyakit");
         $kd = "";
         if ($cd->num_rows() > 0) {
             foreach ($cd->result() as $k) {
                 $tmp = ((int)$k->kd_max) + 1;
-                $kd = sprintf("%03s", $tmp);
+                $kd = sprintf("%02s", $tmp);
             }
         } else {
-            $kd = "001";
+            $kd = "01";
         }
-        return "HP" . $kd;
+        return "P" . $kd;
     }
+
+    
 }
