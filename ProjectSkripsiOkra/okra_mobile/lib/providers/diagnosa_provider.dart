@@ -14,6 +14,11 @@ class DiagnosaProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  resetHasil() {
+    hasil = null;
+    notifyListeners();
+  }
+
   final Map<String, ModelProviderGejala> _items = {};
 
   Map<String, ModelProviderGejala> get items => _items;

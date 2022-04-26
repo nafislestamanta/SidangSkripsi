@@ -26,6 +26,13 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    diagnosaProvider.resetHasil();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
