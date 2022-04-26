@@ -329,15 +329,25 @@ class _DiagnosaPageState extends State<DiagnosaPage> {
                     ),
                     onPressed: () async {
                       final jsonJawaban = jsonEncode(hasil.listJawaban);
+                      final api = ApiDiagnosa();
 
                       // bool cekHasil =
-                      createsDiagnosa(jsonJawaban);
+                      final result = await api.createDiagnosa(jsonJawaban);
 
-                      // if (jsonJawaban.isEmpty) {
-                      //   print("response cek hasil empty: $cekHasil");
-                      // } else {
-                      //   print("response cek hasil : $cekHasil");
-                      // }
+                      if (result == null) {
+                        print("response cek hasil empty");
+                      } else {
+                        hasil.saveHasil(result);
+
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const HasilDiagnosaPage();
+                            },
+                          ),
+                        );
+                      }
 
                       // if (cekHasil) {
                       //   Navigator.pushReplacement(

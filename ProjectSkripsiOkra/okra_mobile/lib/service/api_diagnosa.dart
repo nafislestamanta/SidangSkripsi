@@ -8,7 +8,7 @@ import 'package:okra_mobile/service/api_url.dart';
 class ApiDiagnosa {
   final String apiUrl = "$apiurl/Diagnosa";
 
-  Future createDiagnosa(String jsonjawaban) async {
+  Future<HasilDiagnosa?> createDiagnosa(String jsonjawaban) async {
     // List<String> listJawaban = [
     //   "${diagnosa.kodeGejala}_${diagnosa.kodeValue}",
     // ];
@@ -28,14 +28,16 @@ class ApiDiagnosa {
         final dataHasil = HasilDiagnosa.fromJson(hasil);
 
         print(dataHasil.data);
+        return dataHasil;
       } else {
-        print("error ya");
+        return null;
       }
 
       // log(response.body);
     } catch (e) {
       // Fluttertoast.showToast(msg: e.toString());
       log(e.toString());
+      return null;
     }
   }
 

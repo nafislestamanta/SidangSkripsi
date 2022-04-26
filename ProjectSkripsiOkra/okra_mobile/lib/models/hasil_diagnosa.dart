@@ -1,8 +1,3 @@
-// To parse this JSON data, do
-//
-//     final hasilDiagnosa = hasilDiagnosaFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 HasilDiagnosa hasilDiagnosaFromJson(String str) =>
@@ -20,13 +15,13 @@ class HasilDiagnosa {
 
   bool status;
   String message;
-  Data data;
+  DataDiagnosa data;
   List<Solusi> solusi;
 
   factory HasilDiagnosa.fromJson(Map<String, dynamic> json) => HasilDiagnosa(
         status: json["status"],
         message: json["message"],
-        data: Data.fromJson(json["data"]),
+        data: DataDiagnosa.fromJson(json["data"]),
         solusi:
             List<Solusi>.from(json["solusi"].map((x) => Solusi.fromJson(x))),
       );
@@ -39,8 +34,8 @@ class HasilDiagnosa {
       };
 }
 
-class Data {
-  Data({
+class DataDiagnosa {
+  DataDiagnosa({
     required this.kodeHp,
     required this.hasilHp,
     required this.hasilGejala,
@@ -54,7 +49,7 @@ class Data {
   String hasilNilai;
   Hamapenyakit hamapenyakit;
 
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
+  factory DataDiagnosa.fromJson(Map<String, dynamic> json) => DataDiagnosa(
         kodeHp: json["kode_hp"],
         hasilHp: List<Hamapenyakit>.from(
             json["hasil_hp"].map((x) => Hamapenyakit.fromJson(x))),
@@ -96,7 +91,7 @@ class Hamapenyakit {
         namaLatin: json["nama_latin"],
         kategori: json["kategori"],
         gambar: json["gambar"],
-        nilaiPerhitungan: json["nilai_perhitungan"],
+        nilaiPerhitungan: json["nilai_perhitungan"] ?? "0",
         // nilaiPerhitungan: json["nilai_perhitungan"] == null
         //     ? null
         //     : json["nilai_perhitungan"],

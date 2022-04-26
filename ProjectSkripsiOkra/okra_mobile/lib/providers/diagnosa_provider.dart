@@ -2,9 +2,17 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:okra_mobile/models/diagnosa.dart';
+import 'package:okra_mobile/models/hasil_diagnosa.dart';
 
 class DiagnosaProvider with ChangeNotifier {
   List<String> listJawaban = [];
+
+  HasilDiagnosa? hasil;
+
+  saveHasil(HasilDiagnosa hasilValue) {
+    hasil = hasilValue;
+    notifyListeners();
+  }
 
   final Map<String, ModelProviderGejala> _items = {};
 
