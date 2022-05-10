@@ -98,9 +98,9 @@ class Solusi extends CI_Controller
 
     public function simpanEditSolusi($id)
     {
-        // $this->form_validation->set_rules('nama', 'Nama', 'required|trim', [
-        //     'required' => 'Field tidak boleh kosong'
-        // ]);
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim', [
+            'required' => 'Field tidak boleh kosong'
+        ]);
         // $this->form_validation->set_rules('solusi', 'Solusi', 'required|trim', [
         //     'required' => 'Field tidak boleh kosong'
         // ]);
@@ -111,29 +111,16 @@ class Solusi extends CI_Controller
             $kode_solusi = $this->input->post('kode_solusi');
             $solusi = $this->input->post('solusi');
 
-            // $data = [
-            //     'kode_solusi' => $kode_solusi,
-            //     'solusi' => $solusi,
-            // ];
-
             $data = array();
-            $i = 0;
-            foreach ($kode_solusi as $sapa) {
-                $i++;
-                array_push($data, array(
-                    // 'kode_solusi' => $tmp,
-                    'kode_solusi' => $sapa,
-                ));
-            }
-            foreach ($solusi as $sapa2) {
-                $i++;
-                array_push($data, array(
-                    // 'kode_solusi' => $tmp,
-                    'solusi' => $sapa2,
-                ));
+            foreach ($kode_solusi as $sapa => $val) {
+                $data[] = array(
+                    'kode_solusi' => $kode_solusi[$sapa],
+                    'solusi' => $solusi[$sapa]
+                );
             }
 
-            $update = $this->M_solusi->updateSolusi($data, $id);
+            $update = $this->db->update_batch('solusi', $data, 'kode_solusi');
+            // $update = $this->M_solusi->updateSolusi($data);
 
             if ($update) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');

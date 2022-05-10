@@ -32,8 +32,9 @@ class HamaPenyakit extends REST_Controller
                 200
             );
         } else {
-            $pengetahuan = $this->db->get_where("basis_pengetahuan", ["kode_hp" => $id])->result_array();
             $solusi = $this->db->get_where("solusi", ["kode_hp" => $id])->result_array();
+            $this->db->join('gejala', 'gejala.kode_gejala=basis_pengetahuan.kode_gejala');
+            $pengetahuan = $this->db->get_where("basis_pengetahuan", ["kode_hp" => $id])->result_array();
             $this->response(
                 array(
                     'status' => true,

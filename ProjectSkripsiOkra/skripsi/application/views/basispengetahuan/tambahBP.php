@@ -59,7 +59,7 @@
                         Dimana nilai kepastian anda terhadap gejala Buah Tampak Berlubang untuk penyakit Ulat Grayak <i>(Spodoptera litura)</i> adalah <b>0.8 (Hampir Pasti)</b>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                    <form class="form form-vertical" method="post" action="<?= base_url('basispengetahuan/simpanBP') ?>">
+                    <form class="form form-vertical" method="post" action="<?= base_url('basispengetahuan/simpanBP') ?>" enctype="multipart/form-data">
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-12">
@@ -96,6 +96,7 @@
                                         </fieldset>
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-group">
                                         <h5>MB</h5>
@@ -108,6 +109,12 @@
                                         <h5>MD</h5>
                                         <input type="number" step="any" class="form-control form-control-lg" name="md" placeholder="Nilai MD" value="<?= set_value('md'); ?>">
                                         <?= form_error('md', '<large class="text-danger pl-3">', '</large>'); ?>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <h5>Upload Gambar</h5>
+                                        <input class="form-control form-control-lg" type="file" id="gambar" name="gambar">
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-end">

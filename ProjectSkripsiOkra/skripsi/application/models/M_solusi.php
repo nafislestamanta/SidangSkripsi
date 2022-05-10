@@ -40,9 +40,9 @@ class M_solusi extends CI_Model
         }
     }
 
-    public function updateSolusi($data, $id)
+    public function updateSolusi($data)
     {
-        return $this->db->where('slug', $id)->update_batch('solusi', $data);
+        return $this->db->where('kode_solusi')->update_batch('solusi', $data);
     }
 
     public function deleteSolusi($id)

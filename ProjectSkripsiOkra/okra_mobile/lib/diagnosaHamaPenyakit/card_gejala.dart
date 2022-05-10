@@ -55,11 +55,6 @@ class _CardGejalaState extends State<CardGejala> {
               onChanged: (value) {
                 setState(() {
                   selectedValue = value;
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Berhasil Dipilih'),
-                    ),
-                  );
                   tambahDiagnosa.addDiagnosa(
                       widget.gejala.kodeGejala, selectedValue!);
                 });
@@ -73,11 +68,6 @@ class _CardGejalaState extends State<CardGejala> {
               onChanged: (value) {
                 setState(() {
                   selectedValue = value;
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Berhasil Dipilih'),
-                    ),
-                  );
                   tambahDiagnosa.addDiagnosa(
                       widget.gejala.kodeGejala, selectedValue!);
                 });
@@ -91,11 +81,6 @@ class _CardGejalaState extends State<CardGejala> {
               onChanged: (value) {
                 setState(() {
                   selectedValue = value;
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Berhasil Dipilih'),
-                    ),
-                  );
                   tambahDiagnosa.addDiagnosa(
                       widget.gejala.kodeGejala, selectedValue!);
                 });
@@ -109,11 +94,6 @@ class _CardGejalaState extends State<CardGejala> {
               onChanged: (value) {
                 setState(() {
                   selectedValue = value;
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Berhasil Dipilih'),
-                    ),
-                  );
                   tambahDiagnosa.addDiagnosa(
                       widget.gejala.kodeGejala, selectedValue!);
                 });

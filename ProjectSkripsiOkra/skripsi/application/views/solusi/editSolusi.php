@@ -56,13 +56,11 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <h5>Solusi</h5>
-                                        <?php foreach ($edits as $e) :
-                                            if ($e->slug == $edit->slug) : ?>
-                                                <textarea hidden class="form-control form-calcontrol-lg" name="kode_solusi[]" placeholder="Solusi" id=""><?= $e->kode_solusi ?></textarea>
-                                                <!-- <input type="text" class="form-control form-control-lg" name="solusi" placeholder="solusi" value="<?= $edit->solusi ?>"> -->
-                                                <textarea class="form-control form-calcontrol-lg" name="solusi[]" placeholder="Solusi" id=""><?= $e->solusi ?></textarea>
-                                                <br>
-                                        <?php endif;
+                                        <?php foreach ($edits as $e) : ?>
+                                            <textarea hidden class="form-control form-calcontrol-lg" name="kode_solusi[]" placeholder="Solusi" id=""><?= $e->kode_solusi ?></textarea>
+                                            <textarea class="form-control form-calcontrol-lg" name="solusi[]" placeholder="Solusi" id=""><?= $e->solusi ?></textarea>
+                                            <br>
+                                        <?php
                                         endforeach; ?>
                                         <?= form_error('solusi', '<large class="text-danger pl-3">', '</large>'); ?>
                                     </div>

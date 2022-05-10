@@ -14,7 +14,7 @@ class M_diagnosa extends CI_Model
                 'nama_latin' => $penyakit_temp['nama_latin'],
                 'kategori' => $penyakit_temp['kategori'],
                 'gambar' => $penyakit_temp['gambar'],
-                'nilai_perhitungan' => $nilai,
+                'nilai_perhitungan' => number_format($nilai * 100, 2),
             );
 
             // * menambahkan penyakit ke array penyakit

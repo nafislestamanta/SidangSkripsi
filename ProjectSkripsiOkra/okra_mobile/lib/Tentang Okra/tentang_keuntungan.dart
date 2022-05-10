@@ -96,6 +96,17 @@ class TentangKeuntungan extends StatelessWidget {
                 color: darkBlue,
               ),
             ),
+             const SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Sumber: Direktorat Perlindungan Hortikultura Kementerian Pertanian',
+              // textAlign: TextAlign.justify,
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                color: darkBlue,
+              ),
+            ),
           ],
         ),
       ),

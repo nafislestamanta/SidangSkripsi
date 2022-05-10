@@ -38,6 +38,7 @@
                                 <th>Nama</th>
                                 <th>Kategori</th>
                                 <th>Gejala</th>
+                                <th>Gambar</th>
                                 <th>MB</th>
                                 <th>MD</th>
                                 <th>CF Pakar</th>
@@ -52,6 +53,7 @@
                                     <td><?= $bp->nama_hp; ?></td>
                                     <td><?= $bp->kategori; ?></td>
                                     <td><?= $bp->nama_gejala; ?></td>
+                                    <td><img width="100px" height="100px" src="<?= base_url('assets/images/okra/' . $bp->gambar_gejala); ?>" alt="Belum Ada Foto"></td>
                                     <td><?= $bp->mb; ?></td>
                                     <td><?= $bp->md; ?></td>
                                     <td><?= $bp->cf_pakar; ?></td>

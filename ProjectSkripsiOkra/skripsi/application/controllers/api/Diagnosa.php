@@ -160,7 +160,7 @@ class Diagnosa extends REST_Controller
                 'kode_hp' => $kode_hp,
                 'hasil_hp' => $hasilpenyakit,
                 'hasil_gejala' => $hasilgejala,
-                'hasil_nilai' => $nilai,
+                'hasil_nilai' => number_format($nilai * 100, 2),
                 'hamapenyakit' => $hamapenyakit
             );
 

@@ -64,7 +64,7 @@ class TentangSejarah extends StatelessWidget {
               height: 10,
             ),
             Text(
-              'Tanaman okra berasal dari Afrika dan dibawa ke Amerika sekitar 3 abad lalu oleh para budak Afrika. Saat ini tanaman okra sudah dikenal luas di berbagai negara di Asia, Eropa, dan Australia. Bahkan masakan berbahan dasar okra sangat populer di Sri Lanka, Jepang, Philipina, Arab Saudi dan Eropa. Tanaman ini tersebar ke berbagai daerah tropik dan subtropik  seperti India, Afrika Barat dan Brasil, yang pada akhirnya lebih populer di negara-negara Eropa dan Australia.',
+              'Sumber: Direktorat Perlindungan Hortikultura Kementerian Pertanian',
               textAlign: TextAlign.justify,
               style: GoogleFonts.poppins(
                 fontSize: 16,

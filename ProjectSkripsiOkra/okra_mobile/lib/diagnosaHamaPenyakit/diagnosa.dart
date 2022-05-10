@@ -95,199 +95,161 @@ class _DiagnosaPageState extends State<DiagnosaPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 13),
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                width: 25,
-                                height: 25,
-                                decoration: const ShapeDecoration(
-                                  shape: CircleBorder(
-                                    side: BorderSide(
-                                      color: Colors.white,
-                                    ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      // crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              width: 25,
+                              height: 25,
+                              decoration: const ShapeDecoration(
+                                shape: CircleBorder(
+                                  side: BorderSide(
+                                    color: Colors.white,
                                   ),
-                                  color: Colors.transparent,
                                 ),
-                                child: const Center(
-                                  child: Text(
-                                    '1',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ),
+                                color: Colors.transparent,
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  '1',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
                                   ),
                                 ),
                               ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Tidak Yakin',
-                                style: GoogleFonts.poppins(
-                                    fontSize: 14, color: Colors.white),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            children: [
-                              Container(
-                                width: 25,
-                                height: 25,
-                                decoration: const ShapeDecoration(
-                                  shape: CircleBorder(
-                                    side: BorderSide(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  color: Colors.transparent,
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    '2',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Sedikit Yakin',
+                              style: GoogleFonts.poppins(
+                                  fontSize: 14, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              width: 25,
+                              height: 25,
+                              decoration: const ShapeDecoration(
+                                shape: CircleBorder(
+                                  side: BorderSide(
+                                    color: Colors.white,
                                   ),
                                 ),
+                                color: Colors.transparent,
                               ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Mungkin',
-                                style: GoogleFonts.poppins(
-                                    fontSize: 14, color: Colors.white),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            children: [
-                              Container(
-                                width: 25,
-                                height: 25,
-                                decoration: const ShapeDecoration(
-                                  shape: CircleBorder(
-                                    side: BorderSide(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  color: Colors.transparent,
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    '3',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ),
+                              child: const Center(
+                                child: Text(
+                                  '2',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
                                   ),
                                 ),
                               ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Kemungkinan Besar',
-                                style: GoogleFonts.poppins(
-                                    fontSize: 14, color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                width: 25,
-                                height: 25,
-                                decoration: const ShapeDecoration(
-                                  shape: CircleBorder(
-                                    side: BorderSide(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  color: Colors.transparent,
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    '4',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Cukup Yakin',
+                              style: GoogleFonts.poppins(
+                                  fontSize: 14, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              width: 25,
+                              height: 25,
+                              decoration: const ShapeDecoration(
+                                shape: CircleBorder(
+                                  side: BorderSide(
+                                    color: Colors.white,
                                   ),
                                 ),
+                                color: Colors.transparent,
                               ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Hampir Pasti',
-                                style: GoogleFonts.poppins(
-                                    fontSize: 14, color: Colors.white),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            children: [
-                              Container(
-                                width: 25,
-                                height: 25,
-                                decoration: const ShapeDecoration(
-                                  shape: CircleBorder(
-                                    side: BorderSide(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  color: Colors.transparent,
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    '5',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ),
+                              child: const Center(
+                                child: Text(
+                                  '3',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
                                   ),
                                 ),
                               ),
-                              const SizedBox(
-                                width: 10,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Yakin',
+                              style: GoogleFonts.poppins(
+                                  fontSize: 14, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              width: 25,
+                              height: 25,
+                              decoration: const ShapeDecoration(
+                                shape: CircleBorder(
+                                  side: BorderSide(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                color: Colors.transparent,
                               ),
-                              Text(
-                                'Pasti',
-                                style: GoogleFonts.poppins(
-                                    fontSize: 14, color: Colors.white),
+                              child: const Center(
+                                child: Text(
+                                  '4',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                  ),
+                                ),
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Sangat Yakin',
+                              style: GoogleFonts.poppins(
+                                  fontSize: 14, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -335,6 +297,17 @@ class _DiagnosaPageState extends State<DiagnosaPage> {
                       final result = await api.createDiagnosa(jsonJawaban);
 
                       if (result == null) {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                backgroundColor: Colors.red.shade700,
+                                title: const Text(
+                                  'Harap Memasukkan Gejala !',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              );
+                            });
                         print("response cek hasil empty");
                       } else {
                         hasil.saveHasil(result);

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:okra_mobile/custom.dart';
-import 'package:okra_mobile/models/hasil_diagnosa.dart';
 import 'package:okra_mobile/providers/diagnosa_provider.dart';
-import 'package:okra_mobile/service/api_diagnosa.dart';
 import 'package:okra_mobile/service/api_url.dart';
 import 'package:provider/provider.dart';
 
@@ -20,14 +18,12 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     diagnosaProvider = Provider.of<DiagnosaProvider>(context, listen: false);
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     diagnosaProvider.resetHasil();
   }
@@ -53,10 +49,10 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(15.0),
               margin: const EdgeInsets.all(20.0),
               width: double.infinity,
-              height: 350,
+              height: 370,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     18.0,
@@ -89,7 +85,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                     height: 20,
                   ),
                   SizedBox(
-                    height: 160,
+                    height: 180,
                     child: Scrollbar(
                       controller: _controllerOne,
                       isAlwaysShown: true,
@@ -101,21 +97,53 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                         itemBuilder: (context, index) {
                           final listGejala =
                               diagnosaProvider.hasil!.data.hasilGejala[index];
-                          return Row(
-                            children: [
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(bottom: 10.0),
-                                  child: Text(
-                                    "- ${listGejala.namaGejala}",
-                                    style: GoogleFonts.poppins(fontSize: 14),
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 5.0),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "- ${listGejala.namaGejala}",
+                                      style: GoogleFonts.poppins(fontSize: 14),
+                                      textAlign: TextAlign.justify,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 5.0),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Row(
+                                      children: [
+                                        Icon(Icons.radio_button_checked,
+                                            color: green3),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        Text(
+                                          listGejala.namaKondisi,
+                                          style:
+                                              GoogleFonts.poppins(fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                const Divider(
+                                  thickness: 1,
+                                  height: 10,
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                              ],
+                            ),
                           );
                         },
                       ),
@@ -125,7 +153,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(15.0),
               margin:
                   const EdgeInsets.only(bottom: 20.0, left: 20.0, right: 20.0),
               width: double.infinity,
@@ -187,7 +215,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                                 width: 10,
                               ),
                               Text(
-                                '${listPenyakit.nilaiPerhitungan}',
+                                '${listPenyakit.nilaiPerhitungan} %',
                                 style: GoogleFonts.poppins(
                                     fontSize: 14,
                                     color: darkGreen,
@@ -203,11 +231,11 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(15.0),
               margin:
                   const EdgeInsets.only(bottom: 20.0, left: 20.0, right: 20.0),
               width: double.infinity,
-              height: 460,
+              height: 470,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     18.0,
@@ -265,7 +293,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                         width: 10,
                       ),
                       Text(
-                        '(${diagnosaProvider.hasil!.data.hasilNilai})',
+                        '(${diagnosaProvider.hasil!.data.hasilNilai} %)',
                         style: GoogleFonts.poppins(
                             fontSize: 14,
                             color: darkGreen,
@@ -277,14 +305,14 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                     height: 10,
                   ),
                   Text(
-                    'Dari hasil tersebut dapat disimpulkan bahwa hama atau penyakit yang menyerang tanaman Okra anda adalah Empoasca dengan nilai perhitungan 0.90',
+                    'Dari hasil tersebut dapat disimpulkan bahwa hama atau penyakit yang menyerang tanaman Okra anda adalah ${diagnosaProvider.hasil!.data.hamapenyakit.namaHp} dengan nilai perhitungan ${diagnosaProvider.hasil!.data.hasilNilai} %',
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                     ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   SizedBox(
                     width: 100,
@@ -355,8 +383,9 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                     height: 150,
                     width: 250,
                     decoration: BoxDecoration(
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/lubang.jpg'),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                            '$fotoUrl/assets/images/okra/${diagnosaProvider.hasil!.data.hamapenyakit.gambar}'),
                         fit: BoxFit.fill,
                       ),
                       borderRadius:
@@ -373,7 +402,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Empoasca',
+                        diagnosaProvider.hasil!.data.hamapenyakit.namaHp,
                         style: GoogleFonts.poppins(
                             fontSize: 14,
                             color: darkGreen,
@@ -383,7 +412,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                         width: 10,
                       ),
                       Text(
-                        '(0.90)',
+                        ("(${diagnosaProvider.hasil!.data.hasilNilai})"),
                         style: GoogleFonts.poppins(
                             fontSize: 14,
                             color: darkGreen,
@@ -399,8 +428,10 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                     child: ListView.builder(
                       controller: controller,
                       // shrinkWrap: true,
-                      itemCount: 12,
+                      itemCount: diagnosaProvider.hasil!.solusi.length,
                       itemBuilder: (context, index) {
+                        final listSolusi =
+                            diagnosaProvider.hasil!.solusi[index];
                         return Row(
                           children: [
                             // SizedBox(
@@ -410,7 +441,7 @@ class _HasilDiagnosaPageState extends State<HasilDiagnosaPage> {
                               child: Padding(
                                 padding: const EdgeInsets.only(bottom: 10.0),
                                 child: Text(
-                                  '- Tidak memegang tanaman yang sehat sehabis memegang tanaman sakit',
+                                  '- ${listSolusi.solusi}',
                                   style: GoogleFonts.poppins(fontSize: 14),
                                 ),
                               ),

@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:okra_mobile/custom.dart';
@@ -18,6 +19,8 @@ class DetailHamaPenyakitPage extends StatefulWidget {
 
 class _DetailHamaPenyakitPageState extends State<DetailHamaPenyakitPage> {
   final ApiHamaPenyakit api = ApiHamaPenyakit();
+  int _current = 0;
+  final CarouselController _controller = CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -52,24 +55,67 @@ class _DetailHamaPenyakitPageState extends State<DetailHamaPenyakitPage> {
 
               return ListView(
                 children: [
-                  Container(
-                    height: 200,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            '$fotoUrl/assets/images/okra/${widget.hamapenyakit.gambar}'),
-                        fit: BoxFit.fill,
-                      ),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(18.0)),
-                      // border: Border.all(
-                      //   width: 0.5,
-                      //   color: const Color(0xFF423B55),
-                      // ),
-                    ),
-                    margin: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, top: 10.0),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CarouselSlider.builder(
+                    itemCount: gejala.length,
+                    options: CarouselOptions(
+                        autoPlay: true,
+                        enlargeCenterPage: true,
+                        // aspectRatio: 2.0,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            _current = index;
+                          });
+                        }),
+                    itemBuilder: (context, index, realIdx) {
+                      final imageG = gejala[index];
+                      return Container(
+                        width: 350,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: imageG.gambarGejala.isNotEmpty
+                                ? NetworkImage(
+                                    '$fotoUrl/assets/images/okra/${imageG.gambarGejala}')
+                                : const NetworkImage(
+                                    '$fotoUrl/assets/images/okra/no.png'),
+                            fit: BoxFit.fill,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(18.0)),
+                          border: Border.all(
+                            width: 0.5,
+                            color: const Color(0xFF423B55),
+                          ),
+                        ),
+                        margin: const EdgeInsets.all(5.0),
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 10),
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                '${index + 1}',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                                // textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   Text(
                     widget.hamapenyakit.namaHp,
@@ -133,7 +179,7 @@ class _DetailHamaPenyakitPageState extends State<DetailHamaPenyakitPage> {
                                     padding:
                                         const EdgeInsets.only(bottom: 10.0),
                                     child: Text(
-                                      '- ${gejalaHP.namaGejala}',
+                                      '${index + 1}. ${gejalaHP.namaGejala}',
                                       style: GoogleFonts.poppins(fontSize: 14),
                                     ),
                                   ),

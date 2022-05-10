@@ -55,26 +55,63 @@ class BasisPengetahuan extends CI_Controller
             $gejala = $this->input->post('gejala');
             $mb = $this->input->post('mb');
             $md = $this->input->post('md');
+            $gambar = $_FILES['gambar']['name'];
+
+            $config['upload_path']      =    './assets/images/okra/';
+            $config['allowed_types']    =    'jpg|jpeg|png';
+            $config['max_size']         =    10000;
+
+            $this->load->library('upload', $config);
+
 
             $cf = $mb - $md;
 
-            $data = [
-                'kode_pengetahuan' => $kode,
-                'kode_hp' => $nama,
-                'kode_gejala' => $gejala,
-                'mb' => $mb,
-                'md' => $md,
-                'cf_pakar' => $cf
-            ];
+            if ($gambar) {
+                if ($this->upload->do_upload('gambar')) {
 
-            $tambah = $this->M_basispengetahuan->tambahBP($data);
+                    $data = [
+                        'kode_pengetahuan' => $kode,
+                        'kode_hp' => $nama,
+                        'kode_gejala' => $gejala,
+                        'mb' => $mb,
+                        'md' => $md,
+                        'cf_pakar' => $cf,
+                        'gambar_gejala' => preg_replace("/\s+/", "_", $gambar)
+                    ];
 
-            if ($tambah) {
-                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
-                redirect('basispengetahuan');
+                    $tambah = $this->m_basispengetahuan->tambahBP($data);
+
+                    if ($tambah) {
+                        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
+                        redirect('basispengetahuan');
+                    } else {
+                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil ditambah</div>');
+                        redirect('basispengetahuan');
+                    }
+                } else {
+                    $error = array('error' => $this->upload->display_errors());
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                    redirect('basispengetahuan', $error);
+                }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil ditambah</div>');
-                redirect('basispengetahuan');
+                $data = [
+                    'kode_pengetahuan' => $kode,
+                    'kode_hp' => $nama,
+                    'kode_gejala' => $gejala,
+                    'mb' => $mb,
+                    'md' => $md,
+                    'cf_pakar' => $cf,
+                ];
+
+                $tambah = $this->m_basispengetahuan->tambahBP($data);
+
+                if ($tambah) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
+                    redirect('basispengetahuan');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil ditambah</div>');
+                    redirect('basispengetahuan');
+                }
             }
         }
     }
@@ -113,25 +150,60 @@ class BasisPengetahuan extends CI_Controller
             $gejala = $this->input->post('gejala');
             $mb = $this->input->post('mb');
             $md = $this->input->post('md');
+            $gambar = $_FILES['gambar']['name'];
+
+            $config['upload_path']      =    './assets/images/okra/';
+            $config['allowed_types']    =    'jpg|jpeg|png';
+            $config['max_size']         =    10000;
+
+            $this->load->library('upload', $config);
 
             $cf = $mb - $md;
 
-            $data = [
-                'kode_hp' => $nama,
-                'kode_gejala' => $gejala,
-                'mb' => $mb,
-                'md' => $md,
-                'cf_pakar' => $cf
-            ];
+            if ($gambar) {
+                if ($this->upload->do_upload('gambar')) {
 
-            $update = $this->M_basispengetahuan->updateBP($data, $id);
+                    $data = [
+                        'kode_hp' => $nama,
+                        'kode_gejala' => $gejala,
+                        'mb' => $mb,
+                        'md' => $md,
+                        'cf_pakar' => $cf,
+                        'gambar_gejala' => preg_replace("/\s+/", "_", $gambar)
+                    ];
 
-            if ($update) {
-                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-                redirect('basispengetahuan');
+                    $update = $this->M_basispengetahuan->updateBP($data, $id);
+
+                    if ($update) {
+                        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+                        redirect('basispengetahuan');
+                    } else {
+                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil diupdate</div>');
+                        redirect('basispengetahuan');
+                    }
+                } else {
+                    $error = array('error' => $this->upload->display_errors());
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
+                    redirect('basispengetahuan', $error);
+                }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil diupdate</div>');
-                redirect('basispengetahuan');
+                $data = [
+                    'kode_hp' => $nama,
+                    'kode_gejala' => $gejala,
+                    'mb' => $mb,
+                    'md' => $md,
+                    'cf_pakar' => $cf,
+                ];
+
+                $update = $this->M_basispengetahuan->updateBP($data, $id);
+
+                if ($update) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+                    redirect('basispengetahuan');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil diupdate</div>');
+                    redirect('basispengetahuan');
+                }
             }
         }
     }

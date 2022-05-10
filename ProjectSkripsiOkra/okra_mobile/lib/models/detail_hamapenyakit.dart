@@ -2,6 +2,7 @@
 //
 //     final detailHamaPenyakit = detailHamaPenyakitFromJson(jsonString);
 
+import 'package:meta/meta.dart';
 import 'dart:convert';
 
 DetailHamaPenyakit detailHamaPenyakitFromJson(String str) => DetailHamaPenyakit.fromJson(json.decode(str));
@@ -41,6 +42,7 @@ class Pengetahuan {
         required this.kodePengetahuan,
         required this.kodeHp,
         required this.kodeGejala,
+        required this.gambarGejala,
         required this.mb,
         required this.md,
         required this.cfPakar,
@@ -50,6 +52,7 @@ class Pengetahuan {
     String kodePengetahuan;
     String kodeHp;
     String kodeGejala;
+    String gambarGejala;
     String mb;
     String md;
     String cfPakar;
@@ -59,6 +62,7 @@ class Pengetahuan {
         kodePengetahuan: json["kode_pengetahuan"],
         kodeHp: json["kode_hp"],
         kodeGejala: json["kode_gejala"],
+        gambarGejala: json["gambar_gejala"],
         mb: json["mb"],
         md: json["md"],
         cfPakar: json["cf_pakar"],
@@ -69,6 +73,7 @@ class Pengetahuan {
         "kode_pengetahuan": kodePengetahuan,
         "kode_hp": kodeHp,
         "kode_gejala": kodeGejala,
+        "gambar_gejala": gambarGejala,
         "mb": mb,
         "md": md,
         "cf_pakar": cfPakar,

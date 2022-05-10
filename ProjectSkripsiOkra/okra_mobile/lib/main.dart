@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:okra_mobile/diagnosaHamaPenyakit/hasil_diagnosa.dart';
 import 'package:okra_mobile/providers/diagnosa_provider.dart';
 import 'package:okra_mobile/splashscreen.dart';
 import 'package:provider/provider.dart';

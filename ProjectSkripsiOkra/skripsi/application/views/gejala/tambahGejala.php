@@ -30,7 +30,7 @@
                     Form Tambah Data
                 </div>
                 <div class="card-body">
-                    <form class="form form-vertical" method="post" action="<?= base_url('gejala/simpanGejala') ?>">
+                    <form class="form form-vertical" method="post" action="<?= base_url('gejala/simpanGejala') ?>" enctype="multipart/form-data">
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-12">
@@ -44,6 +44,12 @@
                                         <h5>Nama</h5>
                                         <input type="text" class="form-control form-control-lg" name="nama" placeholder="Nama" value="<?= set_value('nama'); ?>">
                                         <?= form_error('nama', '<large class="text-danger pl-3">', '</large>'); ?>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <h5>Upload Gambar</h5>
+                                        <input class="form-control form-control-lg" type="file" id="gambar" name="gambar">
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-end">

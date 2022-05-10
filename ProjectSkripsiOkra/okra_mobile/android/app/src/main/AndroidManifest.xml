@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.okra_mobile">
    <application
-        android:label="okra_mobile"
+        android:label="Okra-in"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

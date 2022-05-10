@@ -96,6 +96,9 @@ class TentangBudidaya extends StatelessWidget {
                 color: darkBlue,
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             Text(
               '6. Selanjutnya dilakukan pemeliharaan okra,  misalnya dengan pengairan, pembersihan lahan dan lain-lain. Dimana okra memerlukan kondisi tanah yang agak lembab, apabila tidak hujan sebaiknya diberi pengairan dengan interval dua hari sekali. Penyiangan atau Pengendalian gulma dapat dilakukan dengan penanaman menggunakan mulsa plastik hitam perak',
               // textAlign: TextAlign.justify,
@@ -104,8 +107,22 @@ class TentangBudidaya extends StatelessWidget {
                 color: darkBlue,
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             Text(
               '7. Tanaman ini dapat dipanen pada usia 1,5 bulan. Okra dipanen pada saat buahnya masih muda, yaitu 5-6 hari setelah bunga mekar. Okra berbunga pada 50 hari setelah tanam. Panjang buah okra yang disukai konsumen adalah 6,5 - 9 cm. Panen okra dapat dilakukan 3 kali dalam seminggu. Masa berbuah adalah 82 hari setelah tanam. Panen buah okra dilakukan dua hari sekali. Okra yang baru dipanen dan disimpan di tempat sejuk dan kering biasanya dapat bertahan selama seminggu. Okra yang akan dijadikan benih dibiarkan tua dan kering di pohon, setelah itu dipetik dan dikeluarkan bijinya yang langsung bisa ditanam atau dikeringkan dulu.',
+              // textAlign: TextAlign.justify,
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                color: darkBlue,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Sumber: Direktorat Perlindungan Hortikultura Kementerian Pertanian',
               // textAlign: TextAlign.justify,
               style: GoogleFonts.poppins(
                 fontSize: 16,
