@@ -14,7 +14,7 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('dashboard'); ?>">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('Dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit Data Basis Pengetahuan</li>
                         </ol>
                     </nav>
@@ -29,7 +29,7 @@
                     Form Edit Data
                 </div>
                 <div class="card-body">
-                    <form class="form form-vertical" method="post" action="<?= base_url('basispengetahuan/simpanEditBP/' . $edit->kode_pengetahuan) ?>" enctype="multipart/form-data">
+                    <form class="form form-vertical" method="post" action="<?= base_url('BasisPengetahuan/simpanEditBP/' . $edit->kode_pengetahuan) ?>" enctype="multipart/form-data">
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-12">
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-12 d-flex justify-content-end">
                                     <button type="submit" class="btn btn-success me-1 mb-1">Simpan</button>
-                                    <a href="<?= base_url('basispengetahuan'); ?>" class="btn btn-light-secondary me-1 mb-1">Kembali</a>
+                                    <a href="<?= base_url('BasisPengetahuan'); ?>" class="btn btn-light-secondary me-1 mb-1">Kembali</a>
                                 </div>
                             </div>
                         </div>

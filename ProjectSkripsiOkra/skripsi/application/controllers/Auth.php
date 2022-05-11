@@ -30,14 +30,14 @@ class Auth extends CI_Controller
                     'username' => 'admin'
                 ];
                 $this->session->set_userdata($data);
-                redirect('dashboard');
+                redirect('Dashboard');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password anda salah!</div>');
-                redirect('auth');
+                redirect('Auth');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username Anda salah!</div>');
-            redirect('auth');
+            redirect('Auth');
         }
     }
 
@@ -45,6 +45,6 @@ class Auth extends CI_Controller
     {
         $this->session->unset_userdata('username');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i class="bi bi-check-circle"></i> Anda berhasil logout!</div>');
-        redirect('auth');
+        redirect('Auth');
     }
 }

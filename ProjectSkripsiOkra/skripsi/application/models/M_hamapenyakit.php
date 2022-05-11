@@ -30,7 +30,9 @@ class M_hamapenyakit extends CI_Model
 
     public function deleteHP($id)
     {
-        return $this->db->where('kode_hp', $id)->delete('hamapenyakit');
+        $delete = $this->db->where('kode_hp', $id)->delete('solusi');
+        $delete = $this->db->where('kode_hp', $id)->delete('hamapenyakit');
+        return $delete;
     }
 
     public function kode()
@@ -47,6 +49,4 @@ class M_hamapenyakit extends CI_Model
         }
         return "P" . $kd;
     }
-
-    
 }

@@ -41,52 +41,20 @@ class Gejala extends CI_Controller
         } else {
             $kode = $this->input->post('kode');
             $nama = $this->input->post('nama');
-            $gambar = $_FILES['gambar']['name'];
 
-            $config['upload_path']      =    './assets/images/okra/';
-            $config['allowed_types']    =    'jpg|jpeg|png';
-            $config['max_size']         =    10000;
+            $data = [
+                'kode_gejala' => $kode,
+                'nama_gejala' => $nama,
+            ];
 
-            $this->load->library('upload', $config);
+            $tambah = $this->M_gejala->tambahGejala($data);
 
-            if ($gambar) {
-                if ($this->upload->do_upload('gambar')) {
-
-                    $data = [
-                        'kode_gejala' => $kode,
-                        'nama_gejala' => $nama,
-                        'gambar' => preg_replace("/\s+/", "_", $gambar)
-                    ];
-
-                    $tambah = $this->M_gejala->tambahGejala($data);
-
-                    if ($tambah) {
-                        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
-                        redirect('gejala');
-                    } else {
-                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil ditambah</div>');
-                        redirect('gejala');
-                    }
-                } else {
-                    $error = array('error' => $this->upload->display_errors());
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
-                    redirect('gejala', $error);
-                }
+            if ($tambah) {
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
+                redirect('Gejala');
             } else {
-                $data = [
-                    'kode_gejala' => $kode,
-                    'nama_gejala' => $nama,
-                ];
-
-                $tambah = $this->M_gejala->tambahGejala($data);
-
-                if ($tambah) {
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
-                    redirect('gejala');
-                } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil ditambah</div>');
-                    redirect('gejala');
-                }
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil ditambah</div>');
+                redirect('Gejala');
             }
         }
     }
@@ -111,50 +79,19 @@ class Gejala extends CI_Controller
             $this->editGejala($id);
         } else {
             $nama = $this->input->post('nama');
-            $gambar = $_FILES['gambar']['name'];
 
-            $config['upload_path']      =    './assets/images/okra/';
-            $config['allowed_types']    =    'jpg|jpeg|png';
-            $config['max_size']         =    10000;
+            $data = [
+                'nama_gejala' => $nama,
+            ];
 
-            $this->load->library('upload', $config);
+            $update = $this->M_gejala->updateGejala($data, $id);
 
-            if ($gambar) {
-                if ($this->upload->do_upload('gambar')) {
-
-                    $data = [
-                        'nama_gejala' => $nama,
-                        'gambar' => preg_replace("/\s+/", "_", $gambar)
-                    ];
-
-                    $update = $this->M_gejala->updateGejala($data, $id);
-
-                    if ($update) {
-                        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-                        redirect('gejala');
-                    } else {
-                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil diupdate</div>');
-                        redirect('gejala');
-                    }
-                } else {
-                    $error = array('error' => $this->upload->display_errors());
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
-                    redirect('gejala', $error);
-                }
+            if ($update) {
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
+                redirect('Gejala');
             } else {
-                $data = [
-                    'nama_gejala' => $nama,
-                ];
-
-                $update = $this->M_gejala->updateGejala($data, $id);
-
-                if ($update) {
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-                    redirect('gejala');
-                } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil diupdate</div>');
-                    redirect('gejala');
-                }
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil diupdate</div>');
+                redirect('Gejala');
             }
         }
     }
@@ -177,6 +114,6 @@ class Gejala extends CI_Controller
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal dihapus</div>');
         }
-        redirect('gejala');
+        redirect('Gejala');
     }
 }

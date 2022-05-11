@@ -14,8 +14,8 @@
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('dashboard'); ?>">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('hamapenyakit'); ?>">Hama dan Penyakit</a></li>
+                                    <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('Dashboard'); ?>">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('HamaPenyakit'); ?>">Hama dan Penyakit</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Data Hama dan Penyakit</li>
                                 </ol>
                             </nav>
@@ -28,7 +28,7 @@
                     <div class="card">
                         <div class="card-header">
                             Tabel Data Hama dan Penyakit
-                            <a style="float: right;" href="<?= base_url('hamapenyakit/tambahHP'); ?>" class="btn btn-success"><i class="fa fa-plus"></i> <b>Tambah Data</b></a>
+                            <a style="float: right;" href="<?= base_url('HamaPenyakit/tambahHP'); ?>" class="btn btn-success"><i class="fa fa-plus"></i> <b>Tambah Data</b></a>
                         </div>
                         <div class="card-body">
                             <?= $this->session->flashdata('message'); ?>
@@ -57,9 +57,9 @@
                                             <td><?= $hp->kategori ?></td>
                                             <td><img width="100px" height="100px" src="<?= base_url('assets/images/okra/' . $hp->gambar); ?>" alt="Belum Ada Foto"></td>
                                             <td>
-                                                <a href="<?= base_url('hamapenyakit/editHP/' . $hp->kode_hp); ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
-                                                <!-- <a href="<?= base_url('hamapenyakit/detailHP/' . $hp->kode_hp); ?>" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"><i class="fa fa-eye"></i></a> -->
-                                                <a onclick="confirm_modal('<?= base_url('hamapenyakit/deleteHP/' . $hp->kode_hp); ?>')" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapus"><i class="fa fa-trash"></i> Hapus</a>
+                                                <a href="<?= base_url('HamaPenyakit/editHP/' . $hp->kode_hp); ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
+                                                <!-- <a href="<?= base_url('HamaPenyakit/detailHP/' . $hp->kode_hp); ?>" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"><i class="fa fa-eye"></i></a> -->
+                                                <a onclick="confirm_modal('<?= base_url('HamaPenyakit/deleteHP/' . $hp->kode_hp); ?>')" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapus"><i class="fa fa-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

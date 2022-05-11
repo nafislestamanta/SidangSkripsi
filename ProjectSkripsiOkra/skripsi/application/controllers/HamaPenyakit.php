@@ -72,19 +72,19 @@ class HamaPenyakit extends CI_Controller
 
                     if ($tambah) {
                         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
-                        redirect('hamapenyakit');
+                        redirect('HamaPenyakit');
                     } else {
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil ditambah</div>');
-                        redirect('hamapenyakit');
+                        redirect('HamaPenyakit');
                     }
                 } else {
                     $error = array('error' => $this->upload->display_errors());
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
-                    redirect('hamapenyakit', $error);
+                    redirect('HamaPenyakit', $error);
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Gagal Ditambahkan, Harap Mengupload Gambar!</div>');
-                redirect('hamapenyakit');
+                redirect('HamaPenyakit');
             }
         }
     }
@@ -136,15 +136,15 @@ class HamaPenyakit extends CI_Controller
 
                     if ($update) {
                         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-                        redirect('hamapenyakit');
+                        redirect('HamaPenyakit');
                     } else {
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil diupdate</div>');
-                        redirect('hamapenyakit');
+                        redirect('HamaPenyakit');
                     }
                 } else {
                     $error = array('error' => $this->upload->display_errors());
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
-                    redirect('hamapenyakit', $error);
+                    redirect('HamaPenyakit', $error);
                 }
             } else {
                 $data = [
@@ -157,10 +157,10 @@ class HamaPenyakit extends CI_Controller
 
                 if ($update) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-                    redirect('hamapenyakit');
+                    redirect('HamaPenyakit');
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil diupdate</div>');
-                    redirect('hamapenyakit');
+                    redirect('HamaPenyakit');
                 }
             }
         }
@@ -184,6 +184,6 @@ class HamaPenyakit extends CI_Controller
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal dihapus</div>');
         }
-        redirect('hamapenyakit');
+        redirect('HamaPenyakit');
     }
 }

@@ -14,8 +14,8 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('hamapenyakit'); ?>">Hama dan Penyakit</a></li>
+                            <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('Dashboard'); ?>">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('HamaPenyakit'); ?>">Hama dan Penyakit</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Data Solusi</li>
                         </ol>
                     </nav>
@@ -28,7 +28,7 @@
             <div class="card">
                 <div class="card-header">
                     Tabel Data Solusi
-                    <a style="float: right;" href="<?= base_url('solusi/tambahSolusi'); ?>" class="btn btn-success"><i class="fa fa-plus"></i> <b>Tambah Data</b></a>
+                    <a style="float: right;" href="<?= base_url('Solusi/tambahSolusi'); ?>" class="btn btn-success"><i class="fa fa-plus"></i> <b>Tambah Data</b></a>
                 </div>
                 <div class="card-body">
                     <?= $this->session->flashdata('message'); ?>
@@ -49,9 +49,9 @@
                                     <td><?= $s->nama_hp; ?></td>
                                     <td><?= $s->kategori; ?></td>
                                     <td>
-                                        <a href="<?= base_url('solusi/editSolusi/' . $s->slug); ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
-                                        <a href="<?= base_url('solusi/detailSolusi/' . $s->slug); ?>" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"><i class="fa fa-eye"></i> Detail</a>
-                                        <a onclick="confirm_modal('<?= base_url('solusi/deleteSolusi/' . $s->slug); ?>')" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapus"><i class="fa fa-trash"></i> Hapus</a>
+                                        <a href="<?= base_url('Solusi/editSolusi/' . $s->slug); ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
+                                        <a href="<?= base_url('Solusi/detailSolusi/' . $s->slug); ?>" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"><i class="fa fa-eye"></i> Detail</a>
+                                        <a onclick="confirm_modal('<?= base_url('Solusi/deleteSolusi/' . $s->slug); ?>')" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapus"><i class="fa fa-trash"></i> Hapus</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

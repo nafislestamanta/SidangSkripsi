@@ -76,10 +76,10 @@ class Solusi extends CI_Controller
 
             if ($tambah == "yeay") {
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
-                redirect('solusi');
+                redirect('Solusi');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil ditambah</div>');
-                redirect('solusi');
+                redirect('Solusi');
             }
         }
     }
@@ -124,10 +124,10 @@ class Solusi extends CI_Controller
 
             if ($update) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-                redirect('solusi');
+                redirect('Solusi');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil diupdate</div>');
-                redirect('solusi');
+                redirect('Solusi');
             }
         }
     }
@@ -152,6 +152,6 @@ class Solusi extends CI_Controller
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal dihapus</div>');
         }
-        redirect('solusi');
+        redirect('Solusi');
     }
 }

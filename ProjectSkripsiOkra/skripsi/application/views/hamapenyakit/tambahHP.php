@@ -14,8 +14,8 @@
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('dashboard'); ?>">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('hamapenyakit'); ?>">Hama dan Penyakit</a></li>
+                                    <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('Dashboard'); ?>">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('HamaPenyakit'); ?>">Hama dan Penyakit</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Tambah Data Hama dan Penyakit</li>
                                 </ol>
                             </nav>
@@ -30,7 +30,7 @@
                             Form Tambah Data
                         </div>
                         <div class="card-body">
-                            <form class="form form-vertical" method="post" action="<?= base_url('hamapenyakit/simpanHP') ?>" enctype="multipart/form-data">
+                            <form class="form form-vertical" method="post" action="<?= base_url('HamaPenyakit/simpanHP') ?>" enctype="multipart/form-data">
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-12">
@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-success me-1 mb-1">Simpan</button>
-                                            <a href="<?= base_url('hamapenyakit'); ?>" class="btn btn-light-secondary me-1 mb-1">Kembali</a>
+                                            <a href="<?= base_url('HamaPenyakit'); ?>" class="btn btn-light-secondary me-1 mb-1">Kembali</a>
                                         </div>
                                     </div>
                                 </div>

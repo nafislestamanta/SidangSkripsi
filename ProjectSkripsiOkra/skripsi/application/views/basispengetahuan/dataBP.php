@@ -14,7 +14,7 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('dashboard'); ?>">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a class="textcolor" href="<?= base_url('Dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Data Basis Pengetahuan</li>
                         </ol>
                     </nav>
@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-header">
                     Tabel Data Basis Pengetahuan
-                    <a style="float: right;" href="<?= base_url('basispengetahuan/tambahBP'); ?>" class="btn btn-success"><i class="fa fa-plus"></i> <b>Tambah Data</b></a>
+                    <a style="float: right;" href="<?= base_url('BasisPengetahuan/tambahBP'); ?>" class="btn btn-success"><i class="fa fa-plus"></i> <b>Tambah Data</b></a>
                 </div>
                 <div class="card-body">
                     <?= $this->session->flashdata('message'); ?>
@@ -58,9 +58,9 @@
                                     <td><?= $bp->md; ?></td>
                                     <td><?= $bp->cf_pakar; ?></td>
                                     <td>
-                                        <a href="<?= base_url('basispengetahuan/editBP/' . $bp->kode_pengetahuan); ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
-                                        <!-- <a href="<?= base_url('basispengetahuan/detailBP/' . $bp->kode_pengetahuan); ?>" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"><i class="fa fa-eye"></i></a> -->
-                                        <a onclick="confirm_modal('<?= base_url('basispengetahuan/deleteBP/' . $bp->kode_pengetahuan); ?>')" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapus"><i class="fa fa-trash"></i> Hapus</a>
+                                        <a href="<?= base_url('BasisPengetahuan/editBP/' . $bp->kode_pengetahuan); ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
+                                        <!-- <a href="<?= base_url('BasisPengetahuan/detailBP/' . $bp->kode_pengetahuan); ?>" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail Data"><i class="fa fa-eye"></i></a> -->
+                                        <a onclick="confirm_modal('<?= base_url('BasisPengetahuan/deleteBP/' . $bp->kode_pengetahuan); ?>')" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapus"><i class="fa fa-trash"></i> Hapus</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

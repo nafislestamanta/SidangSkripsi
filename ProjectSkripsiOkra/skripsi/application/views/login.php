@@ -34,12 +34,12 @@
         <div class="row h-100">
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
-                    <center><a style="font-size: 40px; font-weight: bold; color: #3F9F43;" href="<?= base_url('dashboard'); ?>"><img width="150px" height="150px" src="<?= base_url('assets/'); ?>images/okra/napisaja.png" alt="Logo" srcset="">Okra-in</a></center>
+                    <center><a style="font-size: 40px; font-weight: bold; color: #3F9F43;" href="<?= base_url('Dashboard'); ?>"><img width="150px" height="150px" src="<?= base_url('assets/'); ?>images/okra/napisaja.png" alt="Logo" srcset="">Okra-in</a></center>
                     <h1 style="padding-top: 50px; color: #235925" class="auth-title">Login</h1>
                     <p class="auth-subtitle mb-5">
                         Login dengan data yang benar untuk dapat mengakses Website Okra-in !</p>
                     <?= $this->session->flashdata('message'); ?>
-                    <form method="post" action="<?= base_url('auth') ?>">
+                    <form method="post" action="<?= base_url('Auth') ?>">
                         <div class="form-group has-icon-left">
                             <div class="position-relative">
                                 <input type="text" class="form-control form-control-xl" name="username" placeholder="Username" value="<?= set_value('username'); ?>">

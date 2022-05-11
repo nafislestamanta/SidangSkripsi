@@ -83,15 +83,15 @@ class BasisPengetahuan extends CI_Controller
 
                     if ($tambah) {
                         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
-                        redirect('basispengetahuan');
+                        redirect('BasisPengetahuan');
                     } else {
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil ditambah</div>');
-                        redirect('basispengetahuan');
+                        redirect('BasisPengetahuan');
                     }
                 } else {
                     $error = array('error' => $this->upload->display_errors());
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
-                    redirect('basispengetahuan', $error);
+                    redirect('BasisPengetahuan', $error);
                 }
             } else {
                 $data = [
@@ -107,10 +107,10 @@ class BasisPengetahuan extends CI_Controller
 
                 if ($tambah) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
-                    redirect('basispengetahuan');
+                    redirect('BasisPengetahuan');
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil ditambah</div>');
-                    redirect('basispengetahuan');
+                    redirect('BasisPengetahuan');
                 }
             }
         }
@@ -176,15 +176,15 @@ class BasisPengetahuan extends CI_Controller
 
                     if ($update) {
                         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-                        redirect('basispengetahuan');
+                        redirect('BasisPengetahuan');
                     } else {
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil diupdate</div>');
-                        redirect('basispengetahuan');
+                        redirect('BasisPengetahuan');
                     }
                 } else {
                     $error = array('error' => $this->upload->display_errors());
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gambar tidak sesuai format</div>');
-                    redirect('basispengetahuan', $error);
+                    redirect('BasisPengetahuan', $error);
                 }
             } else {
                 $data = [
@@ -199,10 +199,10 @@ class BasisPengetahuan extends CI_Controller
 
                 if ($update) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diupdate</div>');
-                    redirect('basispengetahuan');
+                    redirect('BasisPengetahuan');
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data tidak berhasil diupdate</div>');
-                    redirect('basispengetahuan');
+                    redirect('BasisPengetahuan');
                 }
             }
         }
@@ -226,6 +226,6 @@ class BasisPengetahuan extends CI_Controller
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data gagal dihapus</div>');
         }
-        redirect('basispengetahuan');
+        redirect('BasisPengetahuan');
     }
 }

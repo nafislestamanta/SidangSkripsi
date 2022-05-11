@@ -2,7 +2,7 @@
     <div id="sidebar" class="active">
         <div class="sidebar-wrapper active">
             <div style="padding-top: 20px; padding-left: 20px;">
-                <a style="font-size: xx-large; font-weight: bold; color: #3F9F43;" href="<?= base_url('dashboard'); ?>"><img width="100px" height="100px" src="<?= base_url('assets/'); ?>images/okra/napisaja.png" alt="Logo" srcset="">Okra-in</a>
+                <a style="font-size: xx-large; font-weight: bold; color: #3F9F43;" href="<?= base_url('Dashboard'); ?>"><img width="100px" height="100px" src="<?= base_url('assets/'); ?>images/okra/napisaja.png" alt="Logo" srcset="">Okra-in</a>
             </div>
             <div class="sidebar-menu">
                 <ul class="menu">
@@ -31,13 +31,13 @@
                             </a>
                             <ul class="submenu active">
                                 <li class="submenu-item active">
-                                    <a style="color: #3F9F43;" href="<?= base_url('hamapenyakit'); ?>">Data Hama dan Penyakit</a>
+                                    <a style="color: #3F9F43;" href="<?= base_url('HamaPenyakit'); ?>">Data Hama dan Penyakit</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="<?= base_url('gejala'); ?>">Data Gejala</a>
+                                    <a href="<?= base_url('Gejala'); ?>">Data Gejala</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="<?= base_url('solusi'); ?>">Data Solusi</a>
+                                    <a href="<?= base_url('Solusi'); ?>">Data Solusi</a>
                                 </li>
                             </ul>
                         </li>
@@ -49,13 +49,13 @@
                             </a>
                             <ul class="submenu active">
                                 <li class="submenu-item ">
-                                    <a href="<?= base_url('hamapenyakit'); ?>">Data Hama dan Penyakit</a>
+                                    <a href="<?= base_url('HamaPenyakit'); ?>">Data Hama dan Penyakit</a>
                                 </li>
                                 <li class="submenu-item active">
-                                    <a style="color: #3F9F43;" href="<?= base_url('gejala'); ?>">Data Gejala</a>
+                                    <a style="color: #3F9F43;" href="<?= base_url('Gejala'); ?>">Data Gejala</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="<?= base_url('solusi'); ?>">Data Solusi</a>
+                                    <a href="<?= base_url('Solusi'); ?>">Data Solusi</a>
                                 </li>
                             </ul>
                         </li>
@@ -67,13 +67,13 @@
                             </a>
                             <ul class="submenu active">
                                 <li class="submenu-item ">
-                                    <a href="<?= base_url('hamapenyakit'); ?>">Data Hama dan Penyakit</a>
+                                    <a href="<?= base_url('HamaPenyakit'); ?>">Data Hama dan Penyakit</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="<?= base_url('gejala'); ?>">Data Gejala</a>
+                                    <a href="<?= base_url('Gejala'); ?>">Data Gejala</a>
                                 </li>
                                 <li class="submenu-item active">
-                                    <a style="color: #3F9F43;" href="<?= base_url('solusi'); ?>">Data Solusi</a>
+                                    <a style="color: #3F9F43;" href="<?= base_url('Solusi'); ?>">Data Solusi</a>
                                 </li>
                             </ul>
                         </li>
@@ -85,13 +85,13 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item ">
-                                    <a href="<?= base_url('hamapenyakit'); ?>">Data Hama dan Penyakit</a>
+                                    <a href="<?= base_url('HamaPenyakit'); ?>">Data Hama dan Penyakit</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="<?= base_url('gejala'); ?>">Data Gejala</a>
+                                    <a href="<?= base_url('Gejala'); ?>">Data Gejala</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a href="<?= base_url('solusi'); ?>">Data Solusi</a>
+                                    <a href="<?= base_url('Solusi'); ?>">Data Solusi</a>
                                 </li>
                             </ul>
                         </li>
@@ -99,14 +99,14 @@
 
                     <?php if ($title == 'Data Basis Pengetahuan') : ?>
                         <li class="sidebar-item active">
-                            <a style="background-color: #3F9F43;" href="<?= base_url('basispengetahuan'); ?>" class='sidebar-link'>
+                            <a style="background-color: #3F9F43;" href="<?= base_url('BasisPengetahuan'); ?>" class='sidebar-link'>
                                 <i class="bi bi-bookmark-fill"></i>
                                 <span>Basis Pengetahuan</span>
                             </a>
                         </li>
                     <?php else : ?>
                         <li class="sidebar-item ">
-                            <a href="<?= base_url('basispengetahuan'); ?>" class='sidebar-link'>
+                            <a href="<?= base_url('BasisPengetahuan'); ?>" class='sidebar-link'>
                                 <i class="bi bi-bookmark-fill"></i>
                                 <span>Basis Pengetahuan</span>
                             </a>
@@ -143,7 +143,7 @@
                         <i class="bx bx-x d-block d-sm-none"></i>
                         <span class="d-none d-sm-block">Kembali</span>
                     </button>
-                    <a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger ml-1">
+                    <a href="<?= base_url('Auth/logout'); ?>" class="btn btn-danger ml-1">
                         <i class="bx bx-check d-block d-sm-none"></i>
                         <span class="d-none d-sm-block">Logout</span>
                     </a>
