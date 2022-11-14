@@ -295,6 +295,7 @@ class _DiagnosaPageState extends State<DiagnosaPage> {
 
                       // bool cekHasil =
                       final result = await api.createDiagnosa(jsonJawaban);
+                      print("hello : ${result}");
 
                       if (result == null) {
                         showDialog(

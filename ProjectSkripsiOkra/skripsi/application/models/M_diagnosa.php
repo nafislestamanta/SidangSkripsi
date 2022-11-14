@@ -37,7 +37,7 @@ class M_diagnosa extends CI_Model
             } elseif ($id_kondisi == 3) {
                 $id_kondisi = "Yakin";
             } elseif ($id_kondisi == 4) {
-                $id_kondisi = "Sangat Pasti";
+                $id_kondisi = "Sangat Yakin";
             }
             // $gejala_temp = $this->getGejala('id_gejala', $id_gejala);
             $gejala_temp = $this->db->get_where('gejala', ['kode_gejala' => $id_gejala])->row_array();

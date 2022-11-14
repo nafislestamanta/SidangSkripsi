@@ -30,7 +30,7 @@
                                 <div class="row">
                                     <div class="col-md-3 py-2">
                                         <div class="stats-icon purple">
-                                            <i class="iconly-boldShow"></i>
+                                            <i class="iconly-boldFolder"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
@@ -47,7 +47,7 @@
                                 <div class="row">
                                     <div class="col-md-4 py-2">
                                         <div class="stats-icon blue">
-                                            <i class="iconly-bold"></i>
+                                            <i class="iconly-boldFolder"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
@@ -64,7 +64,7 @@
                                 <div class="row">
                                     <div class="col-md-4 py-2">
                                         <div class="stats-icon green">
-                                            <i class="iconly-boldAdd-User"></i>
+                                            <i class="iconly-boldFolder"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-8">

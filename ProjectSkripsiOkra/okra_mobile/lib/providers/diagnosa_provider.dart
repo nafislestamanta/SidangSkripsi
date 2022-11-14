@@ -24,19 +24,19 @@ class DiagnosaProvider with ChangeNotifier {
   Map<String, ModelProviderGejala> get items => _items;
 
   void addDiagnosa(String gejalaId, String selectedValue) {
-    // _items.putIfAbsent(
-    //   gejalaId,
-    //   () => ModelProviderGejala(kodeGejala: gejalaId, kodeValue: selectedValue),
-    // );
-    // print(_items);
     String value = '${gejalaId}_$selectedValue';
 
+    // merubah listjawaban menjadi string dan cek apakah didalamnya tidak terdapat gejala id
     if (!listJawaban.toString().contains(gejalaId)) {
+      //tambah value ke dalam listjawaban
       listJawaban.add(value);
     } else {
       log('sudah ada');
+      //setiap item dari list jawaban
       final filtered = listJawaban.map((jawaban) {
+        //jika jawaban mengandung gejala id (merubah pilihan jawaban)
         if (jawaban.contains(gejalaId)) {
+          // maka rubah pilihan jawaban
           return '${gejalaId}_$selectedValue';
         } else {
           return jawaban;
@@ -44,6 +44,7 @@ class DiagnosaProvider with ChangeNotifier {
       }).toList();
 
       listJawaban.clear();
+      // masukkan jawaban terbaru hasil terfilter dari map ke listjawaban
       listJawaban.addAll(filtered);
     }
 

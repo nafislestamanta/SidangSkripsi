@@ -10,9 +10,6 @@ class ApiDiagnosa {
   final String apiUrl = "$apiurl/Diagnosa";
 
   Future<HasilDiagnosa?> createDiagnosa(String jsonjawaban) async {
-    // List<String> listJawaban = [
-    //   "${diagnosa.kodeGejala}_${diagnosa.kodeValue}",
-    // ];
 
     try {
       final response = await post(
@@ -20,11 +17,8 @@ class ApiDiagnosa {
         body: {'list_jawaban': jsonjawaban},
       );
 
-      // print(response.body);
-
       if (response.statusCode == 200) {
         final hasil = json.decode(response.body);
-        // print(hasil);
 
         final dataHasil = HasilDiagnosa.fromJson(hasil);
 
